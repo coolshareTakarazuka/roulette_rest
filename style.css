@@ -1,0 +1,109 @@
+div.container {
+  background-image: url(./img1.jpg);
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div#roulette {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h2#applyNo {
+  font-size: 40px;
+}
+
+h2#val,
+#gift {
+  font-size: 60px;
+}
+
+h2.txt {
+  color: blue;
+  font-size: 45px;
+}
+
+span {
+  display: inline-block;
+  transform: scale(1);
+  animation: text 4s infinite;
+  font-size: 200%;
+  line-height: 1;
+  color: #ffb308;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 1),
+    4px 4px 0px rgba(248, 187, 2, 1);
+}
+
+span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+span:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+span:nth-child(3) {
+  animation-delay: 3s;
+}
+@keyframes text {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  10% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+
+  25% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+button {
+  font-size: 200%;
+  box-shadow: 2px 2px 4px gray;
+  padding: 10px;
+  font-weight: bold;
+  color: #fff;
+  margin: 30px;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.85;
+  transform: scale(1.5);
+  transition: 0.2s;
+}
+
+button#start {
+  background-color: #32cd32;
+}
+
+button#finish {
+  background-color: #ff3030;
+}
+
+input#submitBtn {
+  display: none;
+}
+
+.close {
+  display: none;
+}
