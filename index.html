@@ -121,8 +121,8 @@
       //     });
       //   }
 
-      //   const audio1 = document.getElementById("audio1");
-      //   const audio2 = document.getElementById("audio2");
+      // const audio1 = document.getElementById("audio1");
+      // const audio2 = document.getElementById("audio2");
       console.log(start);
       start.addEventListener("click", function () {
         const roulette = setInterval(function () {
@@ -133,18 +133,18 @@
           document.getElementById("applyNo").textContent = applyNo;
           document.getElementById("winner").value = applyList[val];
           document.getElementById("winnerName").value = nameList[val];
-          //   audio1.play();
-        }, 50);
-        window.document.onkeydown = function (event) {
-          if (event.key === "Enter") {
+          // audio1.play();
+
+          finish.addEventListener("click", function () {
             clearInterval(roulette);
             // audio1.pause();
             // audio2.play();
+            createConfetti();
             document.getElementById("userForm1").submit();
             start.classList.add("close");
             finish.classList.add("close");
-          }
-        };
+          });
+        }, 50);
       });
     </script>
   </body>
