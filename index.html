@@ -11,7 +11,7 @@
     <div class="container"></div>
     <div id="roulette">
       <h2 class="txt">
-        クールシェアたからづか2025<br>（裏抽選用）<br />
+        クールシェアたからづか2025<br />（裏抽選用）<br />
         <span class="txt1">抽</span><span class="txt2">選</span
         ><span class="txt3">会</span>
       </h2>
@@ -22,8 +22,6 @@
       <button id="start" class="start close">スタート</button>
       <button id="finish" class="finish close">ストップ</button>
 
-      <audio id="audio1" src="./ドラムロール.mp3"></audio>
-      <audio id="audio2" src="./ロールの締め.mp3"></audio>
       <form
         id="userForm1"
         action="https://script.google.com/macros/s/AKfycbwTV-923W6yeYQgJ8TLiHuMfe1UxA9kG4AljqD7Ihd3RShWslbvsgLYMOtXQQ7hZmQZJw/exec"
@@ -107,24 +105,24 @@
           document.getElementById("people").textContent = people;
         });
 
-      function createConfetti() {
-        confetti({
-          angle: 90, // 紙吹雪が飛ぶ方向（指定しないと90＝上向き）90
-          spread: 90,
-          startVelocity: 60, // 紙吹雪が上に飛ぶ速度20
-          scalar: 1.4, // 紙吹雪の大きさ2
-          gravity: 1, // 重力 （0にすると紙吹雪が落ちない）1
-          origin: {
-            x: 0.5, // 紙吹雪の発生場所（両方とも0．5にすると中央）0.5
-            y: 0.7,
-          },
-          particleCount: 50, //100
-          ticks: 200, //1000
-        });
-      }
+      //   function createConfetti() {
+      //     confetti({
+      //       angle: 90, // 紙吹雪が飛ぶ方向（指定しないと90＝上向き）90
+      //       spread: 90,
+      //       startVelocity: 60, // 紙吹雪が上に飛ぶ速度20
+      //       scalar: 1.4, // 紙吹雪の大きさ2
+      //       gravity: 1, // 重力 （0にすると紙吹雪が落ちない）1
+      //       origin: {
+      //         x: 0.5, // 紙吹雪の発生場所（両方とも0．5にすると中央）0.5
+      //         y: 0.7,
+      //       },
+      //       particleCount: 50, //100
+      //       ticks: 200, //1000
+      //     });
+      //   }
 
-      const audio1 = document.getElementById("audio1");
-      const audio2 = document.getElementById("audio2");
+      //   const audio1 = document.getElementById("audio1");
+      //   const audio2 = document.getElementById("audio2");
       console.log(start);
       start.addEventListener("click", function () {
         const roulette = setInterval(function () {
@@ -135,18 +133,18 @@
           document.getElementById("applyNo").textContent = applyNo;
           document.getElementById("winner").value = applyList[val];
           document.getElementById("winnerName").value = nameList[val];
-          audio1.play();
-
-          finish.addEventListener("click", function () {
+          //   audio1.play();
+        }, 50);
+        window.document.onkeydown = function (event) {
+          if (event.key === "Enter") {
             clearInterval(roulette);
-            audio1.pause();
-            audio2.play();
-            createConfetti();
+            // audio1.pause();
+            // audio2.play();
             document.getElementById("userForm1").submit();
             start.classList.add("close");
             finish.classList.add("close");
-          });
-        }, 50);
+          }
+        };
       });
     </script>
   </body>
