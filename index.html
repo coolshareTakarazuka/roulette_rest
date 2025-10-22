@@ -21,6 +21,7 @@
       <h2 id="val"></h2>
       <button id="start" class="start close">スタート</button>
       <button id="finish" class="finish close">ストップ</button>
+      <h3>キーボードの<br />▲でスタート<br />▼でストップ</h3>
 
       <form
         id="userForm1"
@@ -40,13 +41,6 @@
 
       let start = document.getElementById("start");
       let finish = document.getElementById("finish");
-
-      function checkReady() {
-        if (gift && nameList && applyList) {
-          start.classList.remove("close");
-          finish.classList.remove("close");
-        }
-      }
 
       fetch(
         "https://docs.google.com/spreadsheets/d/1QW_GvpSWt8gmtWdETWaldfxPXhdfUg97vrred1BwWVc/export?format=csv&gid=0"
@@ -121,31 +115,33 @@
       //     });
       //   }
 
-      // const audio1 = document.getElementById("audio1");
-      // const audio2 = document.getElementById("audio2");
+      //   const audio1 = document.getElementById("audio1");
+      //   const audio2 = document.getElementById("audio2");
       console.log(start);
-      start.addEventListener("click", function () {
-        const roulette = setInterval(function () {
-          const val = Math.floor(Math.random() * nameList.length);
-          const applyNo = "応募ID： " + applyList[val];
-          const nameVal = nameList[val] + "様";
-          document.getElementById("val").textContent = nameVal;
-          document.getElementById("applyNo").textContent = applyNo;
-          document.getElementById("winner").value = applyList[val];
-          document.getElementById("winnerName").value = nameList[val];
-          // audio1.play();
+      window.document.onkeydown = function (event) {
+        if (event.key === "ArrowUp") {
+          const roulette = setInterval(function () {
+            const val = Math.floor(Math.random() * nameList.length);
+            const applyNo = "応募ID： " + applyList[val];
+            const nameVal = nameList[val] + "様";
+            document.getElementById("val").textContent = nameVal;
+            document.getElementById("applyNo").textContent = applyNo;
+            document.getElementById("winner").value = applyList[val];
+            document.getElementById("winnerName").value = nameList[val];
+            //   audio1.play();
+          }, 50);
 
-          finish.addEventListener("click", function () {
-            clearInterval(roulette);
-            // audio1.pause();
-            // audio2.play();
-            createConfetti();
-            document.getElementById("userForm1").submit();
-            start.classList.add("close");
-            finish.classList.add("close");
-          });
-        }, 50);
-      });
+          window.document.onkeydown = function (event) {
+            if (event.key === "ArrowDown") {
+              clearInterval(roulette);
+              // audio1.pause();
+              // audio2.play();
+              document.getElementById("userForm1").submit();
+              document.getElementById("roulette").classList.add("close");
+            }
+          };
+        }
+      };
     </script>
   </body>
 </html>
