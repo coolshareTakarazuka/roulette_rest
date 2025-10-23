@@ -53,8 +53,8 @@
         }
       }
 
-      fetch(
-        "https://docs.google.com/spreadsheets/d/1Z8sDgL_xPxY3t-8hC7KDcvmRnhrGpRay-OHKD8IIyBc/export?format=csv&gid=0"
+fetch(
+        "https://docs.google.com/spreadsheets/d/1QW_GvpSWt8gmtWdETWaldfxPXhdfUg97vrred1BwWVc/export?format=csv&gid=0"
       )
         .then((res) => res.text())
         .then((csvText) => {
@@ -69,7 +69,7 @@
         .catch((err) => console.error(err));
 
       fetch(
-        "https://docs.google.com/spreadsheets/d/1Z8sDgL_xPxY3t-8hC7KDcvmRnhrGpRay-OHKD8IIyBc/export?format=csv&gid=0"
+        "https://docs.google.com/spreadsheets/d/1QW_GvpSWt8gmtWdETWaldfxPXhdfUg97vrred1BwWVc/export?format=csv&gid=0"
       )
         .then((res) => res.text())
         .then((csvText) => {
@@ -84,7 +84,7 @@
         .catch((err) => console.error(err));
 
       fetch(
-        "https://docs.google.com/spreadsheets/d/1Z8sDgL_xPxY3t-8hC7KDcvmRnhrGpRay-OHKD8IIyBc/export?format=csv&gid=0"
+        "https://docs.google.com/spreadsheets/d/1QW_GvpSWt8gmtWdETWaldfxPXhdfUg97vrred1BwWVc/export?format=csv&gid=0"
       )
         .then((response) => response.text())
         .then((csvText) => {
@@ -98,7 +98,7 @@
         });
 
       fetch(
-        "https://docs.google.com/spreadsheets/d/1Z8sDgL_xPxY3t-8hC7KDcvmRnhrGpRay-OHKD8IIyBc/export?format=csv&gid=0"
+        "https://docs.google.com/spreadsheets/d/1QW_GvpSWt8gmtWdETWaldfxPXhdfUg97vrred1BwWVc/export?format=csv&gid=0"
       )
         .then((response) => response.text())
         .then((csvText) => {
@@ -110,21 +110,7 @@
           document.getElementById("people").textContent = people;
         });
 
-      function createConfetti() {
-        confetti({
-          angle: 90, // 紙吹雪が飛ぶ方向（指定しないと90＝上向き）90
-          spread: 90,
-          startVelocity: 60, // 紙吹雪が上に飛ぶ速度20
-          scalar: 1.4, // 紙吹雪の大きさ2
-          gravity: 1, // 重力 （0にすると紙吹雪が落ちない）1
-          origin: {
-            x: 0.5, // 紙吹雪の発生場所（両方とも0．5にすると中央）0.5
-            y: 0.7,
-          },
-          particleCount: 50, //100
-          ticks: 200, //1000
-        });
-      }
+      
 
       
       console.log(start);
@@ -142,7 +128,6 @@
           finish.addEventListener("click", function () {
             clearInterval(roulette);
             
-            createConfetti();
             document.getElementById("userForm1").submit();
             start.classList.add("close");
             finish.classList.add("close");
