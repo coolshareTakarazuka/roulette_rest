@@ -18,18 +18,8 @@ h2 {
   font-size: 40px;
 }
 
-h2#applyNo {
-  font-size: 40px;
-}
-
-h2#val,
-#gift {
-  font-size: 60px;
-}
-
 h2.txt {
   color: blue;
-  font-size: 45px;
 }
 
 span {
